@@ -1,7 +1,8 @@
 CAN-Bus Shield
 ==============
-[![CAN-BUS Shield](https://dlnmh9ip6v2uc.cloudfront.net//images/products/1/0/0/3/9/10039-01.jpg ) 
-*CAN-BUS Shield (DEV-10039)*](https://www.sparkfun.com/products/10039)
+[![CAN-BUS Shield]()
+
+*CAN-BUS Shield ()*]()
 
 This shield give the Arduino CAN-BUS capability. 
 
@@ -10,6 +11,10 @@ Repository Contents
 
 * **/Hardware** - All Eagle design files (.brd, .sch, .STL)
 
+
+Version History
+---------------
+* [V1.2](https://github.com/sparkfun/CAN-Bus_Shield/tree/v1.2) - This is version 1.2 of the shield. 
 
 License Information
 -------------------
