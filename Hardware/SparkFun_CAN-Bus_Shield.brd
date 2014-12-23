@@ -137,6 +137,7 @@
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
 <layer number="251" name="SMDround" color="12" fill="11" visible="no" active="no"/>
 <layer number="254" name="cooling" color="7" fill="1" visible="no" active="yes"/>
+<layer number="255" name="routoute" color="7" fill="1" visible="no" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -163,11 +164,9 @@
 <text x="33.909" y="7.239" size="1.27" layer="21" font="vector" ratio="15">LCD</text>
 <text x="8.128" y="6.477" size="1.27" layer="21" font="vector" ratio="15">GPS</text>
 <text x="31.75" y="58.42" size="1.27" layer="16" font="vector" ratio="25" rot="MR180">www.skpang.co.uk</text>
-<text x="19.05" y="57.15" size="1.27" layer="16" font="vector" ratio="25" rot="MR0">v13</text>
 <text x="31.8135" y="33.782" size="1.27" layer="21" font="vector" ratio="15">PWR</text>
 <text x="25.654" y="33.782" size="1.27" layer="21" font="vector" ratio="15">D8</text>
 <text x="28.6385" y="33.782" size="1.27" layer="21" font="vector" ratio="15">D7</text>
-<text x="22.86" y="-24.13" size="1.778" layer="51" font="vector" ratio="15">Sukking Pang and Ryan Owens</text>
 <text x="45.72" y="19.685" size="1.27" layer="21" font="vector" ratio="15" rot="R180">U</text>
 <text x="44.577" y="7.493" size="1.27" layer="21" font="vector" ratio="15">D</text>
 <text x="39.116" y="12.573" size="1.27" layer="21" font="vector" ratio="15">L</text>
@@ -179,7 +178,7 @@
 <text x="40.386" y="37.465" size="0.8128" layer="21" font="vector" ratio="15">H</text>
 <text x="42.926" y="37.465" size="0.8128" layer="21" font="vector" ratio="15">L</text>
 <text x="5.334" y="7.62" size="1.016" layer="21" font="vector" ratio="15" rot="R180">GND</text>
-<text x="22.86" y="-27.94" size="1.778" layer="51" font="vector" ratio="15">Toni Klopfenstein</text>
+<text x="22.86" y="-26.67" size="1.778" layer="51" font="vector" ratio="15">Toni Klopfenstein</text>
 </plain>
 <libraries>
 <library name="SparkFun-Boards">
@@ -315,6 +314,8 @@ We've spent an enormous amount of time creating and checking these footprints an
 <text x="-20.32" y="5.08" size="1.778" layer="51">Released under the Creative Commons Attribution Share-Alike 4.0 License</text>
 <text x="0" y="2.54" size="1.778" layer="51"> https://creativecommons.org/licenses/by-sa/4.0/</text>
 <text x="11.43" y="0" size="1.778" layer="51">Designed by:</text>
+<text x="29.21" y="10.16" size="1.27" layer="16" font="vector" ratio="15" rot="SMR0">&gt;VERSION</text>
+<text x="26.67" y="0" size="1.778" layer="51">&gt;DESIGNER</text>
 </package>
 <package name="REVISION">
 <text x="0" y="0" size="1.778" layer="51">Revision By: </text>
@@ -2299,8 +2300,11 @@ design rules under a new name.</description>
 <attribute name="PROD_ID" value="SWCH-09905" x="44.958" y="13.462" size="1.778" layer="27" rot="R315" display="off"/>
 </element>
 <element name="JP5" library="SparkFun-Connectors" package="1X04" value="DNP" x="35.56" y="40.64"/>
-<element name="FRAME1" library="SparkFun-Aesthetics" package="CREATIVE_COMMONS" value="FRAME-LETTER" x="-7.89645625" y="-24.13"/>
-<element name="U$1" library="SparkFun-Aesthetics" package="REVISION" value="REVISION" x="3.81" y="-27.94"/>
+<element name="FRAME1" library="SparkFun-Aesthetics" package="CREATIVE_COMMONS" value="" x="-7.89645625" y="-24.13" smashed="yes">
+<attribute name="VERSION" value="v13" x="18.77354375" y="57.15" size="1.27" layer="16" font="vector" ratio="25" rot="SMR0"/>
+<attribute name="DESIGNER" value="Sukkin Pang and Ryan Owens" x="22.58354375" y="-24.13" size="1.778" layer="51"/>
+</element>
+<element name="U$1" library="SparkFun-Aesthetics" package="REVISION" value="REVISION" x="3.81" y="-26.67"/>
 <element name="LOGO1" library="SparkFun-Aesthetics" package="OSHW-LOGO-M" value="OSHW-LOGOM" x="40.64" y="44.45"/>
 <element name="SJ3" library="SparkFun-Passives" package="PAD-JUMPER-2-NC_BY_TRACE_YES_SILK" value="JUMPER-PAD-2-NC_BY_TRACE" x="3.81" y="5.08" rot="R90"/>
 <element name="TP1" library="SparkFun-Passives" package="TP_15TH" value="TEST-POINTTP_15TH_THRU" x="12.065" y="27.2415"/>
