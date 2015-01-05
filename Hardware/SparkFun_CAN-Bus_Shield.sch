@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.01" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -18886,7 +18886,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="2.362" y1="-1.803" x2="2.362" y2="1.803" width="0.1524" layer="21"/>
 <wire x1="2.362" y1="1.803" x2="-2.362" y2="1.803" width="0.1524" layer="51"/>
 <wire x1="-2.362" y1="1.803" x2="-2.362" y2="-1.803" width="0.1524" layer="21"/>
-<circle x="-1.8034" y="-0.9906" radius="0.1436" width="0.2032" layer="21"/>
+<circle x="-2.7559" y="-1.9431" radius="0.1436" width="0.2032" layer="21"/>
 <smd name="1" x="-1.905" y="-2.6162" dx="0.6096" dy="2.2098" layer="1"/>
 <smd name="2" x="-0.635" y="-2.6162" dx="0.6096" dy="2.2098" layer="1"/>
 <smd name="3" x="0.635" y="-2.6162" dx="0.6096" dy="2.2098" layer="1"/>
@@ -18909,7 +18909,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <package name="SO-18W">
 <description>&lt;B&gt;Small Outline Wide Plastic Gull Wing&lt;/B&gt;&lt;p&gt;
  300-mil body, package type SO</description>
-<circle x="-4.6736" y="-2.7813" radius="0.5334" width="0.1524" layer="21"/>
+<circle x="-5.9436" y="-4.0513" radius="0.254" width="0.1524" layer="21"/>
 <wire x1="-5.6642" y1="-3.6957" x2="5.6388" y2="-3.6957" width="0.1524" layer="21"/>
 <wire x1="5.6388" y1="-3.6957" x2="5.6388" y2="3.6703" width="0.1524" layer="21"/>
 <wire x1="5.6388" y1="3.6703" x2="-5.6642" y2="3.6703" width="0.1524" layer="21"/>
@@ -20446,6 +20446,41 @@ Standard decoupling cap</description>
 <wire x1="147.32" y1="185.42" x2="149.86" y2="185.42" width="0.2032" layer="97" style="shortdash"/>
 <wire x1="91.44" y1="185.42" x2="93.98" y2="185.42" width="0.2032" layer="97" style="shortdash"/>
 <text x="99.06" y="177.8" size="3.81" layer="97">CAN Bus</text>
+<wire x1="149.86" y1="121.92" x2="165.1" y2="121.92" width="0.2032" layer="97"/>
+<wire x1="165.1" y1="121.92" x2="180.34" y2="121.92" width="0.2032" layer="97"/>
+<wire x1="180.34" y1="121.92" x2="195.58" y2="121.92" width="0.2032" layer="97"/>
+<wire x1="195.58" y1="121.92" x2="195.58" y2="116.84" width="0.2032" layer="97"/>
+<wire x1="195.58" y1="116.84" x2="195.58" y2="111.76" width="0.2032" layer="97"/>
+<wire x1="195.58" y1="111.76" x2="195.58" y2="106.68" width="0.2032" layer="97"/>
+<wire x1="195.58" y1="106.68" x2="195.58" y2="101.6" width="0.2032" layer="97"/>
+<wire x1="195.58" y1="101.6" x2="180.34" y2="101.6" width="0.2032" layer="97"/>
+<wire x1="180.34" y1="101.6" x2="165.1" y2="101.6" width="0.2032" layer="97"/>
+<wire x1="165.1" y1="101.6" x2="149.86" y2="101.6" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="101.6" x2="149.86" y2="106.68" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="106.68" x2="149.86" y2="111.76" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="111.76" x2="149.86" y2="116.84" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="116.84" x2="149.86" y2="121.92" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="116.84" x2="195.58" y2="116.84" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="111.76" x2="195.58" y2="111.76" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="106.68" x2="195.58" y2="106.68" width="0.2032" layer="97"/>
+<wire x1="165.1" y1="121.92" x2="165.1" y2="101.6" width="0.2032" layer="97"/>
+<wire x1="180.34" y1="121.92" x2="180.34" y2="101.6" width="0.2032" layer="97"/>
+<text x="170.18" y="119.38" size="1.778" layer="97">CAN</text>
+<text x="182.88" y="119.38" size="1.778" layer="97">OBD-II</text>
+<text x="152.4" y="114.3" size="1.778" layer="97">CAN-H</text>
+<text x="152.4" y="109.22" size="1.778" layer="97">CAN-L</text>
+<text x="152.4" y="104.14" size="1.778" layer="97">GND</text>
+<text x="182.88" y="109.22" size="1.778" layer="97">PIN 5</text>
+<text x="182.88" y="104.14" size="1.778" layer="97">PIN 2</text>
+<text x="182.88" y="114.3" size="1.778" layer="97">PIN 3</text>
+<text x="170.18" y="109.22" size="1.778" layer="97">PIN 2</text>
+<text x="170.18" y="104.14" size="1.778" layer="97">PIN 3</text>
+<text x="170.18" y="114.3" size="1.778" layer="97">PIN 7</text>
+<wire x1="149.86" y1="121.92" x2="149.86" y2="129.54" width="0.2032" layer="97"/>
+<wire x1="149.86" y1="129.54" x2="195.58" y2="129.54" width="0.2032" layer="97"/>
+<wire x1="195.58" y1="129.54" x2="195.58" y2="121.92" width="0.2032" layer="97"/>
+<text x="151.638" y="123.698" size="1.778" layer="97">Jumper Configurations
+ for DB9 pins (SJ4, SJ5, SJ6)</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -20484,20 +20519,14 @@ Standard decoupling cap</description>
 <attribute name="NAME" x="137.16" y="86.36" size="1.778" layer="95"/>
 <attribute name="VALUE" x="137.16" y="83.82" size="1.778" layer="96"/>
 </instance>
-<instance part="C5" gate="G$1" x="129.54" y="78.74" smashed="yes" rot="R90">
-<attribute name="NAME" x="129.54" y="78.74" size="1.778" layer="95"/>
-<attribute name="VALUE" x="129.54" y="76.2" size="1.778" layer="96"/>
-</instance>
-<instance part="C7" gate="G$1" x="129.54" y="93.98" smashed="yes" rot="R90">
-<attribute name="NAME" x="129.54" y="96.52" size="1.778" layer="95"/>
-<attribute name="VALUE" x="129.54" y="93.98" size="1.778" layer="96"/>
-</instance>
+<instance part="C5" gate="G$1" x="129.54" y="78.74" rot="R90"/>
+<instance part="C7" gate="G$1" x="129.54" y="93.98" rot="R90"/>
 <instance part="GND12" gate="1" x="121.92" y="71.12"/>
 <instance part="GND6" gate="1" x="35.56" y="58.42"/>
 <instance part="F1" gate="G$1" x="203.2" y="142.24" rot="MR0"/>
 <instance part="JP4" gate="G$1" x="91.44" y="0"/>
 <instance part="X1" gate="G$1" x="180.34" y="147.32"/>
-<instance part="GND5" gate="1" x="149.86" y="152.4"/>
+<instance part="GND5" gate="1" x="147.32" y="152.4"/>
 <instance part="JP5" gate="G$1" x="76.2" y="76.2" rot="R180"/>
 <instance part="P+12" gate="G$1" x="68.58" y="88.9" smashed="yes">
 <attribute name="VALUE" x="75.946" y="91.694" size="1.778" layer="96" rot="R180"/>
@@ -20512,11 +20541,11 @@ Standard decoupling cap</description>
 <instance part="TP2" gate="G$1" x="203.2" y="68.58" smashed="yes">
 <attribute name="NAME" x="200.66" y="71.12" size="1.778" layer="95"/>
 </instance>
-<instance part="SJ4" gate="G$1" x="129.54" y="157.48" smashed="yes" rot="R90">
-<attribute name="NAME" x="127" y="160.401" size="1.778" layer="95"/>
+<instance part="SJ4" gate="G$1" x="127" y="157.48" smashed="yes" rot="R90">
+<attribute name="NAME" x="127" y="162.179" size="1.778" layer="95" rot="R180"/>
 </instance>
-<instance part="SJ5" gate="G$1" x="149.86" y="162.56" smashed="yes" rot="R90">
-<attribute name="NAME" x="147.32" y="165.481" size="1.778" layer="95"/>
+<instance part="SJ5" gate="G$1" x="147.32" y="162.56" smashed="yes" rot="R90">
+<attribute name="NAME" x="144.78" y="165.481" size="1.778" layer="95"/>
 </instance>
 <instance part="SJ6" gate="G$1" x="157.48" y="142.24" smashed="yes" rot="R90">
 <attribute name="NAME" x="154.94" y="145.161" size="1.778" layer="95"/>
@@ -20592,7 +20621,7 @@ Standard decoupling cap</description>
 <segment>
 <pinref part="SJ5" gate="G$1" pin="2"/>
 <pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="149.86" y1="157.48" x2="149.86" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="157.48" x2="147.32" y2="154.94" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="138.176" y1="132.08" x2="140.462" y2="132.08" width="0.1524" layer="91"/>
@@ -20777,8 +20806,8 @@ Standard decoupling cap</description>
 <pinref part="U5" gate="G$1" pin="CANH"/>
 <pinref part="R12" gate="G$1" pin="2"/>
 <wire x1="106.68" y1="147.32" x2="114.3" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="147.32" x2="129.54" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="129.54" y1="147.32" x2="129.54" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="147.32" x2="127" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="127" y1="147.32" x2="127" y2="152.4" width="0.1524" layer="91"/>
 <junction x="106.68" y="147.32"/>
 <pinref part="SJ4" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="147.32" x2="114.3" y2="134.62" width="0.1524" layer="91"/>
@@ -20803,11 +20832,11 @@ Standard decoupling cap</description>
 <pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="93.98" y1="142.24" x2="111.76" y2="142.24" width="0.1524" layer="91"/>
 <junction x="93.98" y="142.24"/>
-<wire x1="111.76" y1="142.24" x2="142.24" y2="142.24" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="142.24" x2="142.24" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="132.08" x2="157.48" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="142.24" x2="137.16" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="142.24" x2="137.16" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="134.62" x2="157.48" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="SJ6" gate="G$1" pin="2"/>
-<wire x1="157.48" y1="132.08" x2="157.48" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="134.62" x2="157.48" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="142.24" x2="111.76" y2="129.54" width="0.1524" layer="91"/>
 <junction x="111.76" y="142.24"/>
 <pinref part="D5" gate="G$1" pin="2"/>
@@ -20864,13 +20893,13 @@ Standard decoupling cap</description>
 <pinref part="SJ4" gate="G$1" pin="3"/>
 <wire x1="172.72" y1="147.32" x2="137.16" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="137.16" y1="147.32" x2="137.16" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="137.16" y1="157.48" x2="134.62" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="137.16" y1="157.48" x2="132.08" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="X1" gate="G$1" pin="3"/>
 <label x="142.24" y="147.32" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="SJ5" gate="G$1" pin="1"/>
-<wire x1="144.78" y1="162.56" x2="139.7" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="162.56" x2="139.7" y2="162.56" width="0.1524" layer="91"/>
 <label x="139.7" y="162.56" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
@@ -20882,17 +20911,18 @@ Standard decoupling cap</description>
 </segment>
 <segment>
 <pinref part="SJ4" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="157.48" x2="121.92" y2="157.48" width="0.1524" layer="91"/>
-<label x="121.92" y="157.48" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="121.92" y1="157.48" x2="114.3" y2="157.48" width="0.1524" layer="91"/>
+<label x="114.3" y="157.48" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="PIN2" class="0">
 <segment>
 <pinref part="X1" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="149.86" x2="157.48" y2="149.86" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="149.86" x2="157.48" y2="162.56" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="162.56" x2="154.94" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="149.86" x2="154.94" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="149.86" x2="154.94" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="162.56" x2="152.4" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="SJ5" gate="G$1" pin="3"/>
+<label x="157.48" y="149.86" size="1.4224" layer="95"/>
 </segment>
 <segment>
 <pinref part="SJ6" gate="G$1" pin="1"/>
