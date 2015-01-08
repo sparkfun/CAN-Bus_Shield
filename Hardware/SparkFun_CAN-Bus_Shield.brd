@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.0125" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -56,7 +56,7 @@
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
 <layer number="51" name="tDocu" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
@@ -2370,8 +2370,8 @@ design rules under a new name.</description>
 <element name="U$1" library="SparkFun-Aesthetics" package="REVISION" value="REVISION" x="3.81" y="-26.67"/>
 <element name="LOGO1" library="SparkFun-Aesthetics" package="OSHW-LOGO-M" value="OSHW-LOGOM" x="41.275" y="25.7175"/>
 <element name="SJ3" library="SparkFun-Passives" package="PAD-JUMPER-2-NC_BY_TRACE_YES_SILK" value="JUMPER-PAD-2-NC_BY_TRACE" x="3.81" y="5.08" rot="R90"/>
-<element name="TP1" library="SparkFun-Passives" package="PAD.03X.05" value="TEST-POINT3X5" x="12.7" y="27.94"/>
-<element name="TP2" library="SparkFun-Passives" package="PAD.03X.05" value="TEST-POINT3X5" x="12.7" y="30.48"/>
+<element name="TP1" library="SparkFun-Passives" package="PAD.03X.05" value="TEST-POINT3X5" x="12.7" y="27.94" rot="MR0"/>
+<element name="TP2" library="SparkFun-Passives" package="PAD.03X.05" value="TEST-POINT3X5" x="12.7" y="30.48" rot="MR0"/>
 <element name="FRAME2" library="SparkFun-Aesthetics" package="DUMMY" value="" x="-11.43" y="-25.4">
 <attribute name="VERSION" value="v13" x="-11.43" y="-25.4" size="1.778" layer="27" font="vector" ratio="15" display="off"/>
 <attribute name="DESIGNER" value="Sukkin Pang and Ryan Owens" x="-11.43" y="-25.4" size="1.778" layer="27" font="vector" ratio="15" display="off"/>
@@ -2686,11 +2686,13 @@ design rules under a new name.</description>
 <signal name="CAN_RXD">
 <contactref element="U5" pad="4"/>
 <contactref element="U4" pad="2"/>
-<wire x1="14.2621" y1="27.94" x2="20.32" y2="27.94" width="0.254" layer="1"/>
+<wire x1="17.78" y1="27.94" x2="20.32" y2="27.94" width="0.254" layer="1"/>
 <wire x1="20.955" y1="28.575" x2="20.955" y2="32.9438" width="0.254" layer="1"/>
 <wire x1="20.955" y1="28.575" x2="20.32" y2="27.94" width="0.254" layer="1"/>
 <contactref element="TP1" pad="P$1"/>
-<wire x1="14.2621" y1="27.94" x2="12.7" y2="27.94" width="0.254" layer="1"/>
+<wire x1="12.7" y1="27.94" x2="17.78" y2="27.94" width="0.254" layer="16"/>
+<via x="17.78" y="27.94" extent="1-16" drill="0.508"/>
+<wire x1="17.78" y1="27.94" x2="14.2621" y2="27.94" width="0.254" layer="1"/>
 </signal>
 <signal name="CAN_TXD">
 <contactref element="U5" pad="1"/>
@@ -2698,15 +2700,14 @@ design rules under a new name.</description>
 <via x="16.256" y="28.829" extent="1-16" drill="0.508"/>
 <via x="16.51" y="30.7975" extent="1-16" drill="0.508"/>
 <contactref element="TP2" pad="P$1"/>
-<wire x1="14.2621" y1="29.21" x2="13.0175" y2="29.21" width="0.254" layer="1"/>
-<wire x1="13.0175" y1="29.21" x2="12.7" y2="29.5275" width="0.254" layer="1"/>
-<wire x1="12.7" y1="29.5275" x2="12.7" y2="30.48" width="0.254" layer="1"/>
 <wire x1="14.2621" y1="29.21" x2="15.875" y2="29.21" width="0.254" layer="1"/>
 <wire x1="15.875" y1="29.21" x2="16.256" y2="28.829" width="0.254" layer="1"/>
 <wire x1="17.145" y1="32.9438" x2="17.145" y2="31.4325" width="0.254" layer="1"/>
 <wire x1="17.145" y1="31.4325" x2="16.51" y2="30.7975" width="0.254" layer="1"/>
 <wire x1="16.51" y1="30.7975" x2="16.51" y2="29.083" width="0.254" layer="16"/>
 <wire x1="16.51" y1="29.083" x2="16.256" y2="28.829" width="0.254" layer="16"/>
+<wire x1="16.256" y1="28.829" x2="14.351" y2="28.829" width="0.254" layer="16"/>
+<wire x1="14.351" y1="28.829" x2="12.7" y2="30.48" width="0.254" layer="16"/>
 </signal>
 <signal name="N$9">
 <contactref element="R10" pad="1"/>
@@ -3083,13 +3084,13 @@ design rules under a new name.</description>
 <approved hash="19,1,b9a7ec27c29f07f0"/>
 <approved hash="19,1,72ccf7f73dac7647"/>
 <approved hash="5,1,ed5df996ab8571b6"/>
-<approved hash="19,1,9dbb9c09d6f701ae"/>
 <approved hash="5,1,ed1df5eea79d7196"/>
+<approved hash="19,1,9dbb9c09d6f701ae"/>
 <approved hash="19,1,8f39efcd02eed209"/>
 <approved hash="19,1,712d2005a6e429ce"/>
+<approved hash="5,1,e91df586edf5a397"/>
 <approved hash="5,1,e95df9fee1eda3b7"/>
 <approved hash="19,1,89bc846784994ba8"/>
-<approved hash="5,1,e91df586edf5a397"/>
 <approved hash="19,1,41f5a75fca22968b"/>
 <approved hash="19,1,361dd2793eca0fce"/>
 <approved hash="19,1,1609e608a466fe4a"/>
