@@ -54,7 +54,7 @@ SoftwareSerial uart_gps(4,5);
 
 //Define baud rates. GPS should be slower than serial to ensure valid sentences coming through
 #define rate 115200;
-#define GPS_Rate 4800;
+#define GPSRATE 4800;
 #define LCD_Rate 115200;
 
 //Create instance of TinyGPS
@@ -75,14 +75,14 @@ char buffer[512];
 //********************************Setup Loop*********************************//
 void setup() {
   //Initialize Serial communication for debugging
-  Serial.begin(rate);
+  Serial.begin(9600);
   Serial.println("ECU Demo");
   
   //Begin LCD serial communication
-  lcd.begin(LCD_Rate);
+  lcd.begin(9600);
   
   //Begin GPS communcation
-  uart_gps.begin(GPS_Rate);
+  uart_gps.begin(GPSRATE);
   
   //Initialize pins as necessary
   pinMode(chipSelect, OUTPUT);
