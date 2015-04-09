@@ -54,7 +54,7 @@ void setup()
   }
   Serial.println("Card Initialized.");
   lcdSerial.println("uSD Card Ready.");
-  
+  delay(1500);
   if(Canbus.init(CANSPEED_500))
   {
     write_line2();
@@ -66,7 +66,7 @@ void setup()
     lcdSerial.println("No CAN func.");  
   }
   
-  delay(1000);
+  delay(1500);
   
 }
 
