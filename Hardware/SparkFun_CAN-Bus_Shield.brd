@@ -56,7 +56,7 @@
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="yes"/>
 <layer number="51" name="tDocu" color="6" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
@@ -152,17 +152,17 @@
 </layers>
 <board>
 <plain>
-<wire x1="0" y1="2.54" x2="0" y2="55.88" width="0.254" layer="20"/>
-<wire x1="0" y1="55.88" x2="1.27" y2="57.15" width="0.254" layer="20"/>
-<wire x1="1.27" y1="57.15" x2="12.7" y2="57.15" width="0.254" layer="20"/>
-<wire x1="12.7" y1="57.15" x2="15.24" y2="59.69" width="0.254" layer="20"/>
-<wire x1="15.24" y1="59.69" x2="48.26" y2="59.69" width="0.254" layer="20"/>
-<wire x1="48.26" y1="59.69" x2="50.8" y2="57.15" width="0.254" layer="20"/>
-<wire x1="50.8" y1="57.15" x2="53.34" y2="57.15" width="0.254" layer="20"/>
-<wire x1="53.34" y1="57.15" x2="53.34" y2="2.54" width="0.254" layer="20"/>
-<wire x1="53.34" y1="2.54" x2="50.8" y2="0" width="0.254" layer="20"/>
-<wire x1="50.8" y1="0" x2="2.54" y2="0" width="0.254" layer="20"/>
-<wire x1="2.54" y1="0" x2="0" y2="2.54" width="0.254" layer="20"/>
+<wire x1="0" y1="2.54" x2="0" y2="55.88" width="0.2032" layer="20"/>
+<wire x1="0" y1="55.88" x2="1.27" y2="57.15" width="0.2032" layer="20"/>
+<wire x1="1.27" y1="57.15" x2="12.7" y2="57.15" width="0.2032" layer="20"/>
+<wire x1="12.7" y1="57.15" x2="15.24" y2="59.69" width="0.2032" layer="20"/>
+<wire x1="15.24" y1="59.69" x2="48.26" y2="59.69" width="0.2032" layer="20"/>
+<wire x1="48.26" y1="59.69" x2="50.8" y2="57.15" width="0.2032" layer="20"/>
+<wire x1="50.8" y1="57.15" x2="53.34" y2="57.15" width="0.2032" layer="20"/>
+<wire x1="53.34" y1="57.15" x2="53.34" y2="2.54" width="0.2032" layer="20"/>
+<wire x1="53.34" y1="2.54" x2="50.8" y2="0" width="0.2032" layer="20"/>
+<wire x1="50.8" y1="0" x2="2.54" y2="0" width="0.2032" layer="20"/>
+<wire x1="2.54" y1="0" x2="0" y2="2.54" width="0.2032" layer="20"/>
 <wire x1="-1.27" y1="29.21" x2="57.15" y2="29.21" width="0.254" layer="51"/>
 <wire x1="26.67" y1="62.23" x2="26.67" y2="-6.35" width="0.254" layer="51"/>
 <text x="45.593" y="9.017" size="1.016" layer="25" rot="R90">RESET</text>
@@ -234,6 +234,7 @@
 </polygon>
 <text x="11.938" y="74.676" size="2.54" layer="47" font="vector" ratio="15">Units: inches</text>
 <text x="22.86" y="-24.13" size="1.778" layer="51" font="vector" ratio="15">Sukkin Pang</text>
+<text x="19.05" y="57.15" size="1.27" layer="16" font="vector" ratio="25" rot="MR0">v13</text>
 </plain>
 <libraries>
 <library name="SparkFun-Boards">
@@ -2266,7 +2267,7 @@ design rules under a new name.</description>
 </element>
 <element name="D1" library="SparkFun-DiscreteSemi" package="SMA-DIODE" value="MBRA140" x="42.8625" y="33.02" smashed="yes" rot="R90">
 <attribute name="NAME" x="40.7035" y="30.861" size="1.27" layer="25" rot="R90"/>
-<attribute name="VALUE" x="46.2915" y="30.861" size="1.27" layer="27" rot="R90"/>
+<attribute name="VALUE" x="45.0215" y="29.591" size="1.27" layer="27" rot="R90"/>
 <attribute name="PROD_ID" value="DIO-08053" x="42.8625" y="33.02" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R10" library="SparkFun-Resistors" package="0603-RES" value="100" x="24.765" y="36.83" smashed="yes" rot="R90">
@@ -2299,9 +2300,8 @@ design rules under a new name.</description>
 <attribute name="VALUE" value="0.1uF" x="13.4937" y="33.9725" size="1.016" layer="27" ratio="12" rot="R270"/>
 <attribute name="PROD_ID" value="CAP-00810" x="15.24" y="33.02" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C4" library="SparkFun-Capacitors" package="0603-CAP" value="4.7uF" x="45.4025" y="33.02" smashed="yes" rot="R270">
+<element name="C4" library="SparkFun-Capacitors" package="0603-CAP" value="4.7uF" x="45.4025" y="33.02" rot="R270">
 <attribute name="PROD_ID" value="CAP-08280" x="45.4025" y="33.02" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" value="4.7uF" x="45.4025" y="33.02" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="Q1" library="SparkFun-FreqCtrl" package="CRYSTAL-SMD-5X3" value="16MHz" x="10.16" y="21.59" smashed="yes" rot="R270">
 <attribute name="NAME" x="12.954" y="27.305" size="1.27" layer="25" ratio="10" rot="R270"/>
@@ -2581,17 +2581,17 @@ design rules under a new name.</description>
 <contactref element="U2" pad="D12"/>
 <contactref element="U1" pad="7"/>
 <contactref element="U4" pad="15"/>
-<wire x1="18.796" y1="5.864" x2="18.796" y2="14.478" width="0.254" layer="1"/>
+<wire x1="18.796" y1="5.726840625" x2="18.796" y2="14.478" width="0.254" layer="1"/>
 <wire x1="18.796" y1="14.478" x2="18.796" y2="22.352" width="0.254" layer="16"/>
 <wire x1="18.796" y1="22.352" x2="17.018" y2="24.13" width="0.254" layer="16"/>
 <via x="17.018" y="24.13" extent="1-16" drill="0.508"/>
 <via x="18.796" y="14.478" extent="1-16" drill="0.508"/>
-<wire x1="18.796" y1="5.864" x2="18.8317125" y2="5.691128125" width="0.254" layer="1"/>
 <wire x1="17.018" y1="24.13" x2="3.81" y2="24.13" width="0.254" layer="16"/>
 <wire x1="23.8379" y1="25.4" x2="19.05" y2="25.4" width="0.254" layer="1"/>
 <wire x1="19.05" y1="25.4" x2="17.78" y2="24.13" width="0.254" layer="1"/>
 <wire x1="17.78" y1="24.13" x2="17.018" y2="24.13" width="0.254" layer="1"/>
 <wire x1="3.81" y1="24.13" x2="2.54" y2="22.86" width="0.254" layer="16"/>
+<wire x1="18.796" y1="5.726840625" x2="18.8317125" y2="5.691128125" width="0.254" layer="1"/>
 </signal>
 <signal name="MOSI">
 <contactref element="U2" pad="D11"/>
@@ -2943,7 +2943,8 @@ design rules under a new name.</description>
 <wire x1="31.242" y1="19.304" x2="31.242" y2="21.971" width="0.254" layer="1"/>
 <wire x1="30.988" y1="22.225" x2="30.22" y2="22.225" width="0.254" layer="1"/>
 <wire x1="31.242" y1="21.971" x2="30.988" y2="22.225" width="0.254" layer="1"/>
-<wire x1="21.05914375" y1="5.681984375" x2="21.05" y2="9.112" width="0.254" layer="1"/>
+<wire x1="21.05" y1="9.112" x2="21.05" y2="5.691128125" width="0.254" layer="1"/>
+<wire x1="21.05" y1="5.691128125" x2="21.05914375" y2="5.681984375" width="0.254" layer="1"/>
 </signal>
 <signal name="CANH">
 <contactref element="U5" pad="7"/>
@@ -3087,8 +3088,10 @@ design rules under a new name.</description>
 </signal>
 </signals>
 <errors>
-<approved hash="19,1,f835353ef1cd2e2d"/>
+<approved hash="19,1,41f5a75fca22968b"/>
+<approved hash="19,1,361dd2793eca0fce"/>
 <approved hash="19,1,5468f201e4e8506a"/>
+<approved hash="19,1,f835353ef1cd2e2d"/>
 <approved hash="19,1,b9a7ec27c29f07f0"/>
 <approved hash="19,1,72ccf7f73dac7647"/>
 <approved hash="5,1,ed5df996ab8571b6"/>
@@ -3099,10 +3102,10 @@ design rules under a new name.</description>
 <approved hash="5,1,e91df586edf5a397"/>
 <approved hash="5,1,e95df9fee1eda3b7"/>
 <approved hash="19,1,89bc846784994ba8"/>
-<approved hash="19,1,41f5a75fca22968b"/>
-<approved hash="19,1,361dd2793eca0fce"/>
+<approved hash="19,1,4aa9acdd23067f71"/>
 <approved hash="19,1,1609e608a466fe4a"/>
 <approved hash="5,1,79e2e39ce22bff04"/>
+<approved hash="19,1,aa182380c4785355"/>
 <approved hash="19,1,1f5414a8563c18b6"/>
 <approved hash="5,1,49e2d390da27c704"/>
 <approved hash="19,1,0b68681dd460a716"/>
