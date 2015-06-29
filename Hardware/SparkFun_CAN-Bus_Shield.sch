@@ -20093,6 +20093,21 @@ Basic SMA packaged diode. Good for reverse polarization protection. Common part 
 <text x="-2.286" y="1.651" size="0.4064" layer="25">&gt;NAME</text>
 <text x="0.254" y="1.651" size="0.4064" layer="27">&gt;VALUE</text>
 </package>
+<package name="SOT23-3">
+<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
+<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
+<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
+<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
+<smd name="3" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="2" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<smd name="1" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
+<text x="-0.8255" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
+<text x="-1.016" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
+</package>
 </packages>
 <symbols>
 <symbol name="DIODE-SCHOTTKY">
@@ -20110,6 +20125,52 @@ Basic SMA packaged diode. Good for reverse polarization protection. Common part 
 <pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
 <wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.1524" layer="94"/>
 <wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.1524" layer="94"/>
+</symbol>
+<symbol name="PESD1CAN_DIODE">
+<wire x1="0" y1="0" x2="10.16" y2="0" width="0.254" layer="94"/>
+<wire x1="10.16" y1="0" x2="10.16" y2="10.16" width="0.254" layer="94"/>
+<wire x1="10.16" y1="10.16" x2="0" y2="10.16" width="0.254" layer="94"/>
+<wire x1="0" y1="10.16" x2="0" y2="7.62" width="0.254" layer="94"/>
+<text x="0" y="11.43" size="1.778" layer="95">&gt;Name</text>
+<text x="0" y="-2.54" size="1.778" layer="96">&gt;Value</text>
+<wire x1="0" y1="7.62" x2="0" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="1.27" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="6.35" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="2.54" x2="7.62" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="0" y1="7.62" x2="1.27" y2="7.62" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="7.62" x2="6.35" y2="7.62" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="7.62" x2="7.62" y2="7.62" width="0.2032" layer="94"/>
+<wire x1="7.62" y1="7.62" x2="7.62" y2="5.08" width="0.2032" layer="94"/>
+<wire x1="7.62" y1="5.08" x2="7.62" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="3.81" x2="1.27" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="1.27" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="1.27" x2="6.35" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="2.54" x2="6.35" y2="3.81" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="8.89" x2="1.27" y2="7.62" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="7.62" x2="1.27" y2="6.35" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="6.35" x2="6.35" y2="7.62" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="7.62" x2="6.35" y2="8.89" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="6.35" x2="1.905" y2="6.35" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.905" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="3.81" x2="5.715" y2="3.81" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="8.89" x2="5.715" y2="8.89" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="7.62" x2="2.54" y2="8.89" width="0.2032" layer="94"/>
+<wire x1="2.54" y1="8.89" x2="2.54" y2="6.35" width="0.2032" layer="94"/>
+<wire x1="2.54" y1="6.35" x2="1.27" y2="7.62" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="7.62" x2="5.08" y2="8.89" width="0.2032" layer="94"/>
+<wire x1="5.08" y1="8.89" x2="5.08" y2="6.35" width="0.2032" layer="94"/>
+<wire x1="5.08" y1="6.35" x2="6.35" y2="7.62" width="0.2032" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="2.54" y2="3.81" width="0.2032" layer="94"/>
+<wire x1="2.54" y1="3.81" x2="2.54" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="2.54" y1="1.27" x2="1.27" y2="2.54" width="0.2032" layer="94"/>
+<wire x1="6.35" y1="2.54" x2="5.08" y2="3.81" width="0.2032" layer="94"/>
+<wire x1="5.08" y1="3.81" x2="5.08" y2="1.27" width="0.2032" layer="94"/>
+<wire x1="5.08" y1="1.27" x2="6.35" y2="2.54" width="0.2032" layer="94"/>
+<pin name="1" x="-5.08" y="7.62" length="middle"/>
+<pin name="2" x="-5.08" y="2.54" length="middle"/>
+<pin name="3" x="15.24" y="5.08" length="middle" rot="R180"/>
+<wire x1="7.62" y1="5.08" x2="10.16" y2="5.08" width="0.2032" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -20129,6 +20190,26 @@ DIO-08053</description>
 <technologies>
 <technology name="">
 <attribute name="PROD_ID" value="DIO-08053"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="PESD1CAN" prefix="D">
+<description>PESD1CAN is used to protect two automotive CAN bus lines from ESD.</description>
+<gates>
+<gate name="G$1" symbol="PESD1CAN_DIODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="SOT23-3">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+<connect gate="G$1" pin="3" pad="3"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="DIO-12501" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -20757,95 +20838,6 @@ Standard decoupling cap</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="Testing">
-<packages>
-<package name="SOT23-3">
-<wire x1="1.4224" y1="0.6604" x2="1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="1.4224" y1="-0.6604" x2="-1.4224" y2="-0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="-0.6604" x2="-1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-1.4224" y1="0.6604" x2="1.4224" y2="0.6604" width="0.1524" layer="51"/>
-<wire x1="-0.8" y1="0.7" x2="-1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="-1.4" y1="0.7" x2="-1.4" y2="-0.1" width="0.2032" layer="21"/>
-<wire x1="0.8" y1="0.7" x2="1.4" y2="0.7" width="0.2032" layer="21"/>
-<wire x1="1.4" y1="0.7" x2="1.4" y2="-0.1" width="0.2032" layer="21"/>
-<smd name="3" x="0" y="1.1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="2" x="0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<smd name="1" x="-0.95" y="-1" dx="0.8" dy="0.9" layer="1"/>
-<text x="-0.8255" y="1.778" size="0.4064" layer="25">&gt;NAME</text>
-<text x="-1.016" y="-0.1905" size="0.4064" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="PESD1CAN_DIODE">
-<wire x1="0" y1="0" x2="10.16" y2="0" width="0.254" layer="94"/>
-<wire x1="10.16" y1="0" x2="10.16" y2="10.16" width="0.254" layer="94"/>
-<wire x1="10.16" y1="10.16" x2="0" y2="10.16" width="0.254" layer="94"/>
-<wire x1="0" y1="10.16" x2="0" y2="7.62" width="0.254" layer="94"/>
-<text x="0" y="11.43" size="1.778" layer="95">&gt;Name</text>
-<text x="0" y="-2.54" size="1.778" layer="96">&gt;Value</text>
-<wire x1="0" y1="7.62" x2="0" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="0" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="1.27" y2="2.54" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="6.35" y2="2.54" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="2.54" x2="7.62" y2="2.54" width="0.2032" layer="94"/>
-<wire x1="0" y1="7.62" x2="1.27" y2="7.62" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="7.62" x2="6.35" y2="7.62" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="7.62" x2="7.62" y2="7.62" width="0.2032" layer="94"/>
-<wire x1="7.62" y1="7.62" x2="7.62" y2="5.08" width="0.2032" layer="94"/>
-<wire x1="7.62" y1="5.08" x2="7.62" y2="2.54" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="3.81" x2="1.27" y2="2.54" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="1.27" y2="1.27" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="1.27" x2="6.35" y2="2.54" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="2.54" x2="6.35" y2="3.81" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="8.89" x2="1.27" y2="7.62" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="7.62" x2="1.27" y2="6.35" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="6.35" x2="6.35" y2="7.62" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="7.62" x2="6.35" y2="8.89" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="6.35" x2="1.905" y2="6.35" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="1.27" x2="1.905" y2="1.27" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="3.81" x2="5.715" y2="3.81" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="8.89" x2="5.715" y2="8.89" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="7.62" x2="2.54" y2="8.89" width="0.2032" layer="94"/>
-<wire x1="2.54" y1="8.89" x2="2.54" y2="6.35" width="0.2032" layer="94"/>
-<wire x1="2.54" y1="6.35" x2="1.27" y2="7.62" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="7.62" x2="5.08" y2="8.89" width="0.2032" layer="94"/>
-<wire x1="5.08" y1="8.89" x2="5.08" y2="6.35" width="0.2032" layer="94"/>
-<wire x1="5.08" y1="6.35" x2="6.35" y2="7.62" width="0.2032" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="2.54" y2="3.81" width="0.2032" layer="94"/>
-<wire x1="2.54" y1="3.81" x2="2.54" y2="1.27" width="0.2032" layer="94"/>
-<wire x1="2.54" y1="1.27" x2="1.27" y2="2.54" width="0.2032" layer="94"/>
-<wire x1="6.35" y1="2.54" x2="5.08" y2="3.81" width="0.2032" layer="94"/>
-<wire x1="5.08" y1="3.81" x2="5.08" y2="1.27" width="0.2032" layer="94"/>
-<wire x1="5.08" y1="1.27" x2="6.35" y2="2.54" width="0.2032" layer="94"/>
-<pin name="1" x="-5.08" y="7.62" length="middle"/>
-<pin name="2" x="-5.08" y="2.54" length="middle"/>
-<pin name="3" x="15.24" y="5.08" length="middle" rot="R180"/>
-<wire x1="7.62" y1="5.08" x2="10.16" y2="5.08" width="0.2032" layer="94"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="PESD1CAN" prefix="D">
-<description>PESD1CAN is used to protect two automotive CAN bus lines from ESD.</description>
-<gates>
-<gate name="G$1" symbol="PESD1CAN_DIODE" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="SOT23-3">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="3" pad="3"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="DIO-12501" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 </libraries>
 <attributes>
 </attributes>
@@ -20938,7 +20930,7 @@ Standard decoupling cap</description>
 <part name="SJ4" library="SparkFun-Passives" deviceset="JUMPER-PAD-3-2OF3_NC_BY_TRACE" device="_SMALL"/>
 <part name="SJ5" library="SparkFun-Passives" deviceset="JUMPER-PAD-3-2OF3_NC_BY_TRACE" device="_SMALL"/>
 <part name="SJ6" library="SparkFun-Passives" deviceset="JUMPER-PAD-3-2OF3_NC_BY_TRACE" device="_SMALL"/>
-<part name="D5" library="Testing" deviceset="PESD1CAN" device=""/>
+<part name="D5" library="SparkFun-DiscreteSemi" deviceset="PESD1CAN" device=""/>
 <part name="GND20" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
