@@ -21451,7 +21451,6 @@ See table for configurations. </text>
 compatible
  LCDs</text>
 <wire x1="175.26" y1="78.74" x2="175.26" y2="76.2" width="0.2032" layer="94"/>
-<wire x1="175.26" y1="53.34" x2="175.26" y2="50.8" width="0.2032" layer="94"/>
 <text x="177.8" y="91.44" size="3.81" layer="97">GPS</text>
 <text x="129.54" y="58.42" size="1.6764" layer="97">Change jumpers to 
 select GPS communication
