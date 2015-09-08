@@ -70,8 +70,7 @@ if (UserInput=='1'){
  Serial.println(" km/hr ");
  delay(1000);
 }
-
-if (UserInput=='2'){
+else if (UserInput=='2'){
  data= Canbus.ecu_req(ENGINE_RPM, buffer);
  Serial.print("Engine RPM: ");
  Serial.print(data);
@@ -79,8 +78,7 @@ if (UserInput=='2'){
  delay(1000);
 
 }
-
-if (UserInput=='3'){
+else if (UserInput=='3'){
  data= Canbus.ecu_req(THROTTLE, buffer);
  Serial.print("Throttle: ");
   Serial.print(data);
@@ -88,8 +86,7 @@ if (UserInput=='3'){
  delay(1000);
 
 }
-
-if (UserInput=='4'){
+else if (UserInput=='4'){
  data =Canbus.ecu_req(ENGINE_COOLANT_TEMP, buffer);
  Serial.print("Engine Coolant Temp: ");
  Serial.print(data);
@@ -97,8 +94,7 @@ if (UserInput=='4'){
  delay(1000);
 
 }
-
-if (UserInput=='5'){
+else if (UserInput=='5'){
  data=Canbus.ecu_req(O2_VOLTAGE, buffer);
  Serial.print("O2 Voltage: ");
  Serial.print(data);
@@ -106,8 +102,7 @@ if (UserInput=='5'){
  delay(1000);
 
 }
-
-if (UserInput=='6'){
+else if (UserInput=='6'){
  data=Canbus.ecu_req(MAF_SENSOR, buffer);
  Serial.print("MAF Sensor: ");
  Serial.print(data);
