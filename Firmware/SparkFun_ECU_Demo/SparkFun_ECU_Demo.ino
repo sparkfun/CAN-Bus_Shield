@@ -1,8 +1,9 @@
+
 /****************************************************************************
 ECU CAN-Bus Reader and Logger
 
 Toni Klopfenstein @ SparkFun Electronics
-February 2015
+September 2015
 https://github.com/sparkfun/CAN-Bus_Shield
 
 This example sketch works with the CAN-Bus shield from SparkFun Electronics.
@@ -16,17 +17,22 @@ Additional libraries to install for functionality of sketch.
 -SD library by William Greiman. https://github.com/greiman/SdFat 
  
 Development environment specifics:
-Developed for Arduino 1.05
+Developed for Arduino 1.65
 
 Based off of original example ecu_reader_logger by:
 Sukkin Pang
 SK Pang Electronics www.skpang.co.uk
 
-This code is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!
+This code is beerware; if you see me (or any other SparkFun employee) at the local, 
+and you've found our code helpful, please buy us a round!
+
+For the official license, please check out the license file included with the library.
+
 Distributed as-is; no warranty is given.
 *************************************************************************/
 
 //Include necessary libraries for compilation
+#include <SPI.h>
 #include <SD.h>
 #include <SoftwareSerial.h>
 #include <Canbus.h>
@@ -53,9 +59,8 @@ SoftwareSerial uart_gps(4,5);
 #define LED3 7
 
 //Define baud rates. GPS should be slower than serial to ensure valid sentences coming through
-#define rate 115200;
-#define GPSRATE 4800;
-#define LCD_Rate 115200;
+#define GPSRATE 4800
+#define LCD_Rate 115200
 
 //Create instance of TinyGPS
 TinyGPS gps;
@@ -63,7 +68,13 @@ TinyGPS gps;
 //Declare porototype for TinyGPS library functions
 void getgps(TinyGPS &gps);
 
-char buffer[512];
+//Declare SD File
+File dataFile;
+
+//Declare CAN variables for communication
+int CanOutput;
+char buffer[512];  //Data will be temporarily stored to this buffer before being written to the file
+
 
 //Define LCD Positions
 #define COMMAND 0xFE
@@ -86,19 +97,11 @@ void setup() {
   
   //Initialize pins as necessary
   pinMode(chipSelect, OUTPUT);
-  pinMode(UP,INPUT);
-  pinMode(DOWN,INPUT);
-  pinMode(LEFT,INPUT);
-  pinMode(RIGHT,INPUT);
   pinMode(CLICK,INPUT);
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
   
   //Pull analog pins high to enable reading of joystick movements
-  digitalWrite(UP, HIGH);
-  digitalWrite(DOWN, HIGH);
-  digitalWrite(LEFT, HIGH);
-  digitalWrite(RIGHT, HIGH);
   digitalWrite(CLICK, HIGH);
   
   //Write LED pins low to turn them off by default
@@ -113,6 +116,17 @@ void setup() {
   else{
       Serial.println("uSD card initialized.");
   } 
+
+  //Initialize CAN Controller 
+  if(Canbus.init(CANSPEED_500))  /* Initialize MCP2515 CAN controller at the specified speed */
+  {
+    lcd.print("CAN Init ok");
+  } 
+  else
+  {
+    lcd.print("Can't init CAN");
+    return;
+  } 
   
   //Print menu to LCD screen
   clear_lcd();
@@ -120,14 +134,20 @@ void setup() {
   lcd.write(COMMAND);
   lcd.write(LINE2);
   lcd.print("Logging Data");
-  
+ 
+  while(CLICK ==HIGH)
+  {
+    digitalRead(CLICK); //Wait for user to click joystick to begin logging
+  }
+
+  delay(1000); 
 
 }
 
 //********************************Main Loop*********************************//
 void loop(){
   
-  File dataFile = SD.open("ECU_datalog.txt", FILE_WRITE);
+  dataFile = SD.open("ECU_data_log.txt", FILE_WRITE);
   
   //If data file exists, write data to it
   if (dataFile){
@@ -142,11 +162,13 @@ void loop(){
     
     if(uart_gps.available())     // While there is data on the RX pin...
        {
+         digitalWrite(LED2, HIGH); //Signal on D8 that GPS data received.
          int c = uart_gps.read();    // load the data into a variable...
          if(gps.encode(c))      // if there is a new valid sentence...
          {
            getgps(gps);         // then grab the data.
          }
+         digitalWrite(LED2, LOW); //Turn off D8 LED. 
        }
      
     get_CAN(); //grab CAN data
@@ -163,28 +185,39 @@ void loop(){
     lcd.write(LINE2);
     lcd.print("ECU_datalog.txt");
   }
+
+  digitalRead(CLICK);
+  if (CLICK == HIGH)
+  {
+    return; //Stop logging if joystick is clicked
+  
+  }
   
 }
 //********************************CAN Bus Functions*********************************//
 
 void get_CAN(void)
 {
-  Canbus.ecu_req(ENGINE_RPM,buffer); //Request engine RPM
+  digitalWrite(LED3, HIGH); //Turn on LED to indicate CAN Bus traffic
+  
+  CanOutput = Canbus.ecu_req(ENGINE_RPM,buffer); //Request engine RPM
   dataFile.print("Engine RPM: "); 
-  dataFile.println(buffer);
+  dataFile.println(CanOutput);
   
-  Canbus.ecu_req(VEHICLE_SPEED,buffer); //Request Vehicle speed
+  CanOutput = Canbus.ecu_req(VEHICLE_SPEED,buffer); //Request Vehicle speed
   dataFile.print("Vehicle speed: "); 
-  dataFile.println(buffer);
+  dataFile.println(CanOutput);
   
-  Canbus.ecu_req(ENGINE_COOLANT_TEMP,buffer); //Request engine coolant temp
+  CanOutput = Canbus.ecu_req(ENGINE_COOLANT_TEMP,buffer); //Request engine coolant temp
   dataFile.print("Coolant temp: "); 
-  dataFile.println(buffer);
+  dataFile.println(CanOutput);
   
-  Canbus.ecu_req(THROTTLE, buffer); //Request throttle
+  CanOutput = Canbus.ecu_req(THROTTLE, buffer); //Request throttle
   dataFile.print("Throttle: "); 
-  dataFile.println(buffer);
- 
+  dataFile.println(CanOutput);
+
+  digitalWrite(LED3, LOW); //Turn off LED3
+  delay(100);
   
 }
 //********************************LCD Functions*********************************//
@@ -218,7 +251,6 @@ void getgps(TinyGPS &gps)
   dataFile.print("  Time: "); dataFile.print(hour, DEC); dataFile.print(":"); 
   dataFile.print(minute, DEC); dataFile.print(":"); dataFile.print(second, DEC); 
   dataFile.print("."); dataFile.println(hundredths, DEC);
-  //Since month, day, hour, minute, second, and hundr
   
   // Here you can print the altitude and course values directly since 
   // there is only one value for the function

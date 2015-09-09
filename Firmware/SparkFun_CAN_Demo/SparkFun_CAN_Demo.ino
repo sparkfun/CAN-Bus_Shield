@@ -10,15 +10,19 @@ This example sketch works with the CAN-Bus shield from SparkFun Electronics.
 It enables the MCP2515 CAN controller and MCP2551 CAN-Bus driver, and demos
 using the chips to communicate with a CAN-Bus.
 
-
 Resources:
 
 Development environment specifics:
 Developed for Arduino 1.6.5
 
+Based off of original example ecu_reader_logger by:
+Sukkin Pang
+SK Pang Electronics www.skpang.co.uk
 
 This code is beerware; if you see me (or any other SparkFun employee) 
 at the local, and you've found our code helpful, please buy us a round!
+
+For the official license, please check out the license file included with the library.
 
 Distributed as-is; no warranty is given.
 *************************************************************************/
