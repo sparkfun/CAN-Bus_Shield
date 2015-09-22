@@ -72,7 +72,7 @@ void getgps(TinyGPS &gps);
 File dataFile;
 
 //Declare CAN variables for communication
-int CanOutput;
+byte CanOutput;
 char buffer[512];  //Data will be temporarily stored to this buffer before being written to the file
 
 
