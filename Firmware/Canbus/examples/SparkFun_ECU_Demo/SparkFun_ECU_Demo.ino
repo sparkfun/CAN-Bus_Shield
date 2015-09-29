@@ -41,6 +41,7 @@ Distributed as-is; no warranty is given.
 //Initialize uSD pins
 const int chipSelect = 9;
 
+
 //Initialize lcd pins
 SoftwareSerial lcd(3, 6);
 
@@ -72,8 +73,12 @@ void getgps(TinyGPS &gps);
 File dataFile;
 
 //Declare CAN variables for communication
-byte CanOutput;
-char buffer[512];  //Data will be temporarily stored to this buffer before being written to the file
+byte EngineRPM;
+byte Coolant;
+byte Speed;
+byte Throttle;
+char buffer[64];  //Data will be temporarily stored to this buffer before being written to the file
+const int cs_CAN = 10;
 
 
 //Define LCD Positions
@@ -100,6 +105,7 @@ void setup() {
   pinMode(CLICK,INPUT);
   pinMode(LED2, OUTPUT);
   pinMode(LED3, OUTPUT);
+  pinMode(cs_CAN, OUTPUT);
   
   //Pull analog pins high to enable reading of joystick movements
   digitalWrite(CLICK, HIGH);
@@ -108,26 +114,35 @@ void setup() {
   digitalWrite(LED2, LOW);
   digitalWrite(LED3, LOW);
   
-  //Check if uSD card initialized
-  if (!SD.begin(chipSelect)) {
-    Serial.println("uSD card failed to initialize, or is not present");
-    return;
-  }
-  else{
-      Serial.println("uSD card initialized.");
-  } 
-
   //Initialize CAN Controller 
   if(Canbus.init(CANSPEED_500))  /* Initialize MCP2515 CAN controller at the specified speed */
   {
+    clear_lcd();
     lcd.print("CAN Init ok");
+    Serial.println("CAN Init Ok");
+    delay(1500);
   } 
   else
   {
     lcd.print("Can't init CAN");
+    Serial.println("Can't init CAN");
     return;
   } 
-  
+
+   //Check if uSD card initialized
+  if (!SD.begin(chipSelect)) {
+    Serial.println("uSD card failed to initialize, or is not present");
+    clear_lcd();
+    lcd.print("uSD failed.");
+    return;
+  }
+  else{
+      Serial.println("uSD card initialized.");
+      clear_lcd();
+      lcd.print("uSD success!");
+      delay(1500);
+  } 
+
   //Print menu to LCD screen
   clear_lcd();
   lcd.print("Click to begin");
@@ -135,9 +150,9 @@ void setup() {
   lcd.write(LINE2);
   lcd.print("Logging Data");
  
-  while(CLICK ==HIGH)
+  while(digitalRead(CLICK)==HIGH)
   {
-    digitalRead(CLICK); //Wait for user to click joystick to begin logging
+     //Wait for user to click joystick to begin logging
   }
 
   delay(1000); 
@@ -146,80 +161,80 @@ void setup() {
 
 //********************************Main Loop*********************************//
 void loop(){
-  
-  dataFile = SD.open("ECU_data_log.txt", FILE_WRITE);
-  
-  //If data file exists, write data to it
-  if (dataFile){
-    
-    clear_lcd();
-    lcd.print("Logging data");
-    clear_lcd();
-    lcd.print("Click joystick");
-    lcd.write(COMMAND);
-    lcd.write(LINE2);
-    lcd.print("to stop logging");
-    
-    if(uart_gps.available())     // While there is data on the RX pin...
-       {
-         digitalWrite(LED2, HIGH); //Signal on D8 that GPS data received.
-         int c = uart_gps.read();    // load the data into a variable...
-         if(gps.encode(c))      // if there is a new valid sentence...
-         {
-           getgps(gps);         // then grab the data.
-         }
-         digitalWrite(LED2, LOW); //Turn off D8 LED. 
-       }
-     
-    get_CAN(); //grab CAN data
-     
-    
-    dataFile.println();
-    dataFile.close();   //Close data logging file
-  }
-  //If file cannot be opened,write error to LCD screen
-  else{
-    clear_lcd();
-    lcd.print("Error opening");
-    lcd.write(COMMAND);
-    lcd.write(LINE2);
-    lcd.print("ECU_datalog.txt");
-  }
 
-  digitalRead(CLICK);
-  if (CLICK == HIGH)
-  {
-    return; //Stop logging if joystick is clicked
-  
-  }
+  while(digitalRead(CLICK)==HIGH){
+    
+      digitalWrite(LED3, HIGH); //Turn on LED to indicate CAN Bus traffic
+      
+      EngineRPM = Canbus.ecu_req(ENGINE_RPM,buffer); //Request engine RPM
+      Serial.print("Engine RPM: "); //Uncomment for Serial debugging
+      Serial.println(EngineRPM);
+     
+      Speed = Canbus.ecu_req(VEHICLE_SPEED,buffer); //Request Vehicle speed
+      Serial.print("Vehicle speed: "); //Uncomment for Serial debugging
+      Serial.println(Speed);
+      
+      Coolant = Canbus.ecu_req(ENGINE_COOLANT_TEMP,buffer); //Request engine coolant temp
+      Serial.print("Coolant temp: "); //Uncomment for Serial debugging
+      Serial.println(Coolant);
+      
+      Throttle = Canbus.ecu_req(THROTTLE, buffer); //Request throttle
+      Serial.print("Throttle: "); //Uncomment for Serial debugging
+      Serial.println(Throttle);
+    
+      digitalWrite(LED3, LOW); //Turn off LED3
+      delay(1000);
+      
+    File  dataFile = SD.open("data.txt", FILE_WRITE); //Open uSD file to log data
+      
+      //If data file exists, write data to it
+      if (!dataFile){
+          clear_lcd();
+        lcd.print("Error opening");
+        lcd.write(COMMAND);
+        lcd.write(LINE2);
+        lcd.print("data.txt");
+        while(1);
+        }
+        
+        clear_lcd();
+        lcd.print("Logging.Click");
+        lcd.write(COMMAND);
+        lcd.write(LINE2);
+        lcd.print("to stop logging");
+        
+        if(uart_gps.available())     // While there is data on the RX pin...
+           {
+             digitalWrite(LED2, HIGH); //Signal on D8 that GPS data received.
+             int c = uart_gps.read();    // load the data into a variable...
+             if(gps.encode(c))      // if there is a new valid sentence...
+             {
+               getgps(gps);         // then grab the data.
+             }
+             digitalWrite(LED2, LOW); //Turn off D8 LED. 
+           }
+        
+        dataFile.print("Engine RPM: "); 
+        dataFile.println(EngineRPM);
+        dataFile.print("Vehicle speed: "); 
+        dataFile.println(Speed);
+        
+        dataFile.print("Coolant temp: "); 
+        dataFile.println(Coolant);
+        
+        dataFile.print("Throttle: "); 
+        dataFile.println(Throttle);
+        
+        dataFile.println();
+        dataFile.flush();
+        dataFile.close();   //Close data logging file
+      }
+  clear_lcd();
+  lcd.print("Logging stopped.");
+  while(1); //Stop logging if joystick is clicked
   
 }
-//********************************CAN Bus Functions*********************************//
 
-void get_CAN(void)
-{
-  digitalWrite(LED3, HIGH); //Turn on LED to indicate CAN Bus traffic
-  
-  CanOutput = Canbus.ecu_req(ENGINE_RPM,buffer); //Request engine RPM
-  dataFile.print("Engine RPM: "); 
-  dataFile.println(CanOutput);
-  
-  CanOutput = Canbus.ecu_req(VEHICLE_SPEED,buffer); //Request Vehicle speed
-  dataFile.print("Vehicle speed: "); 
-  dataFile.println(CanOutput);
-  
-  CanOutput = Canbus.ecu_req(ENGINE_COOLANT_TEMP,buffer); //Request engine coolant temp
-  dataFile.print("Coolant temp: "); 
-  dataFile.println(CanOutput);
-  
-  CanOutput = Canbus.ecu_req(THROTTLE, buffer); //Request throttle
-  dataFile.print("Throttle: "); 
-  dataFile.println(CanOutput);
-
-  digitalWrite(LED3, LOW); //Turn off LED3
-  delay(100);
-  
-}
 //********************************LCD Functions*********************************//
 void clear_lcd(void)
 {

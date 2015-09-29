@@ -30,7 +30,7 @@ Distributed as-is; no warranty is given.
 #include <Canbus.h>
 char UserInput;
 int data;
-char buffer[512];  //Data will be temporarily stored to this buffer before being written to the file
+char buffer[456];  //Data will be temporarily stored to this buffer before being written to the file
 
 //********************************Setup Loop*********************************//
 
@@ -117,7 +117,8 @@ else if (UserInput=='6'){
 else
 {
   Serial.println(UserInput);
-  Serial.println("Not a valid input");
+  Serial.println("Not a valid input.");
+  Serial.println("Please enter a valid option.");
 }
 
 }
