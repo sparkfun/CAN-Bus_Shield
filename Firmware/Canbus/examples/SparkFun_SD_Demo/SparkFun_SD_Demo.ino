@@ -6,6 +6,10 @@
  modified 18 Sep 2014
  by Bobby Chan @ SparkFun Electronics Inc.
  
+ Modified by Toni Klopfenstein @ SparkFun Electronics
+	September 2015
+	https://github.com/sparkfun/CAN-Bus_Shield
+ 
  SD Card Datalogger
  
  This example is based off an example code from Arduino's site
@@ -26,7 +30,8 @@
  
  This example code is in the public domain.
  */
-
+ 
+#include <SPI.h>
 #include <SD.h>
 
 // On the Ethernet Shield, CS is pin 4. Note that even if it's not
@@ -34,7 +39,7 @@
 // 53 on the Mega) must be left as an output or the SD library
 // functions will not work.
 
-// Chip Select pin is tied to pin 8 on the SparkFun SD Card Shield
+// Chip Select pin is tied to pin 9 on the SparkFun CAN-Bus Shield
 const int chipSelect = 9;  
 
 void setup()

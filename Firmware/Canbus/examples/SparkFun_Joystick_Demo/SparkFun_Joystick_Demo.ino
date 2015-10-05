@@ -1,13 +1,20 @@
 /****************************************************************************** 
-<Toni Klopfenstein @ SparkFun Electronics>
-Modified February 2015
+Toni Klopfenstein @ SparkFun Electronics
+September 2015
+https://github.com/sparkfun/CAN-Bus_Shield
+
+This example sketch works with the CAN-Bus shield from SparkFun Electronics.
+
+It reads the joystick for user inputs. 
 
 Based off of joystick_demo.pde by Sukkin Pang.
 Original file available at http://skpang.co.uk/catalog/arduino-canbus-shield-with-usd-card-holder-p-706.html
 
-Joystick Demo code for the CAN-Bus Shield (https://www.sparkfun.com/products/10039).
+This code is beerware; if you see me (or any other SparkFun employee) at the local, 
+and you've found our code helpful, please buy us a round!
 
-This code is beerware; if you see me (or any other SparkFun employee) at the local, and you've found our code helpful, please buy us a round!
+For the official license, please check out the license file included with the library.
+
 Distributed as-is; no warranty is given.
 ********************************************************************************/
 

@@ -1,17 +1,32 @@
+/****************************************************************************
+ SparkFun Serial LCD example 1
+Clear the display and say "Hello World!"
 
-// SparkFun Serial LCD example 1
-// Clear the display and say "Hello World!"
+This sketch is for Arduino versions 1.0 and later
+If you're using an Arduino version older than 1.0, use
+the other example code available on the tutorial page.
 
-// This sketch is for Arduino versions 1.0 and later
-// If you're using an Arduino version older than 1.0, use
-// the other example code available on the tutorial page.
+Modified:
+	
+Toni Klopfenstein @ SparkFun Electronics
+September 2015
+https://github.com/sparkfun/CAN-Bus_Shield
 
-// Use the softwareserial library to create a new "soft" serial port
-// for the display. This prevents display corruption when uploading code.
-#include <SoftwareSerial.h>
+This code is beerware; if you see me (or any other SparkFun employee) at the local, 
+and you've found our code helpful, please buy us a round!
 
-// Attach the serial display's RX line to digital pin 2
-SoftwareSerial mySerial(3,6); // pin 2 = TX, pin 3 = RX (unused)
+For the official license, please check out the license file included with the library.
+
+Distributed as-is; no warranty is given.
+*************************************************************************/
+#include <SoftwareSerial.h> //LCD screen connects via Software Serial to 
+							//prevent display corruption
+
+// Attach the serial display's RX line to digital pin 6 for connection 
+//on the CAN-Bus shield
+
+SoftwareSerial mySerial(3,6); // pin 6 = TX, pin 3 = RX (unused)
+
 
 void setup()
 {
