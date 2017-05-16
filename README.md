@@ -25,7 +25,7 @@ Documentation
 Product Versions
 ----------------
 * [DEV-13262](https://www.sparkfun.com/products/13262)- Version 1.3. Currently live. 
-* [DEV-10039] (https://www.sparkfun.com/products/retired/10039)- Version 1.2. Retired. 
+* [DEV-10039](https://www.sparkfun.com/products/retired/10039)- Version 1.2. Retired. 
 
 GitHub Version History
 ---------------
